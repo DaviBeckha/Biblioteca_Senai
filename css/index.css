@@ -1,65 +1,105 @@
 * {
-
-
-
-    --bordo: #800020;
-    --brancoCorpo: #f8f4e3;
-    --douradinho: #D4AF37;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "EB Garamond", serif;
-    font-style: italic;
+  --bordo: #800020;
+  --bordo-dark: #1a0006;
+  --brancoCorpo: #f8f4e3;
+  --brancoCorpo-dark: #2a2a2a;
+  --douradinho: #d4af37;
+  --douradinho-bright: #ffd700;
+  --cinza-escuro: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
 }
 
-
 body {
+  color: var(--douradinho);
+  background-color: var(--bordo-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    color: var(--douradinho);
+body.dark-mode {
+  background-color: var(--cinza-escuro);
+}
+
+.dark-mode .bg-bordo {
+  background-color: var(--cinza-escuro);
+}
+
+.dark-mode .bg-light-gold {
+  background-color: var(--brancoCorpo-dark);
+}
+
+.dark-mode .text-bordo {
+  color: var(--douradinho-bright);
+}
+
+.dark-mode .card {
+  background-color: var(--brancoCorpo-dark);
+  border-color: var(--douradinho-bright);
+}
+
+.dark-mode .form-control {
+  background-color: var(--brancoCorpo-dark);
+  color: var(--douradinho-bright);
+  border-color: var(--douradinho-bright);
+}
+
+.dark-mode .form-control::placeholder {
+  color: var(--douradinho);
+}
+
+.dark-mode .text-muted {
+  color: #aaa !important;
 }
 
 .logo {
-    font-weight: 200;
+  font-weight: 200;
 }
 
 .bg-bordo {
-    background-color: var(--bordo);
+  background-color: var(--bordo);
 }
 
 .text-bordo {
-    color: var(--bordo);
+  color: var(--bordo);
 }
 
 .text-gold {
-    color: var(--douradinho);
+  color: var(--douradinho);
 }
 
 .border-gold {
-    border-color: var(--douradinho) !important;
+  border-color: var(--douradinho) !important;
 }
 
 .btn-outline-gold {
-    color: var(--douradinho);
-    border: 2px solid var(--douradinho);
-    background-color: transparent;
-    transition: all 0.3s ease;
+  color: var(--douradinho);
+  border: 2px solid var(--douradinho);
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-gold:hover {
-    background-color: var(--douradinho);
-    color: var(--bordo);
+  background-color: var(--douradinho);
+  color: var(--bordo);
 }
 
-
 .bg-light-gold {
-    background-color: var(--brancoCorpo);
+  background-color: var(--brancoCorpo);
 }
 
 .feature-box h3 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
-.textoMaior{
-    font-size: 18px;
-    font-weight: 500;
+.textoMaior {
+  font-size: 18px;
+  font-weight: 500;
 }

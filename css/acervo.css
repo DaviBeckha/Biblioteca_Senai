@@ -33,3 +33,36 @@
     background-color: #dc3545;
     color: white;
 }
+
+/* Adicione no final do arquivo */
+.dark-mode .card {
+    background-color: var(--brancoCorpo-dark);
+    border-color: var(--douradinho-bright);
+}
+
+.dark-mode .card:hover {
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+}
+
+.dark-mode .btn-outline-danger {
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.dark-mode .btn-outline-danger:hover {
+    background-color: #ff6b6b;
+    color: var(--brancoCorpo-dark);
+}
+
+.dark-mode .form-check-input:checked {
+    background-color: var(--douradinho-bright);
+    border-color: var(--douradinho-bright);
+}
+
+.dark-mode #searchInput {
+    color: var(--douradinho-bright);
+}
+
+.dark-mode #searchInput::placeholder {
+    color: var(--douradinho);
+}
