@@ -34,7 +34,7 @@
     background-color: var(--cinza-escuro) !important;
 }
 
-/* Força aplicação imediata das cores no modo escuro */
+
 body.dark-mode .page-transition {
     background-color: var(--cinza-escuro) !important;
 }

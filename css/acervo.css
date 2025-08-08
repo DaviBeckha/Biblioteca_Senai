@@ -34,7 +34,6 @@
     color: white;
 }
 
-/* Adicione no final do arquivo */
 .dark-mode .card {
     background-color: var(--brancoCorpo-dark);
     border-color: var(--douradinho-bright);
@@ -68,5 +67,5 @@
 }
 
 .dark-mode .autorClaro {
-    color: var(--brancoDarkMode);
+    color: var(--brancoDarkMode) ;
 }
