@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card bg-light-gold border-gold h-100">
                     <div class="card-body">
                         <h5 class="card-title text-bordo">${book.title}</h5>
-                        <p class="card-text">${book.author}</p>
+                        <p class="card-text text-white">${book.author}</p>
                         <small class="text-muted">${book.genre}</small>
                     </div>
                     <div class="card-footer bg-transparent border-gold">

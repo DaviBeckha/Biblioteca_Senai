@@ -6,6 +6,7 @@
   --douradinho: #d4af37;
   --douradinho-bright: #ffd700;
   --cinza-escuro: #1a1a1a;
+  --brancoDarkMode: #dfdfdf;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,14 +19,10 @@ body {
   background-color: var(--bordo-dark);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-html,
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
 
 body.dark-mode {
   background-color: var(--cinza-escuro);
+  color: var();
 }
 
 .dark-mode .bg-bordo {
@@ -102,4 +99,8 @@ body.dark-mode {
 .textoMaior {
   font-size: 18px;
   font-weight: 500;
+}
+
+.dark-mode .textoDarkLight {
+  color: var(--brancoDarkMode);
 }
