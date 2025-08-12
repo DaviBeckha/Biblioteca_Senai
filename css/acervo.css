@@ -69,3 +69,35 @@
 .dark-mode .autorClaro {
     color: var(--brancoDarkMode) ;
 }
+
+.dark-mode .card-title {
+    color: var(--amareloQueimado);
+    font-weight: normal;
+}
+
+.dark-mode .card-text {
+    color: var(--brancoDarkMode) !important;
+}
+
+.dropdown-menu {
+    border: 1px solid var(--douradinho) !important;
+}
+
+.dark-mode .dropdown-menu {
+    background-color: var(--brancoCorpo-dark) !important;
+    border-color: var(--douradinho-bright) !important;
+}
+
+.dark-mode .dropdown-item {
+    color: var(--douradinho-bright) !important;
+}
+
+.dark-mode .dropdown-item:hover {
+    background-color: rgba(212, 175, 55, 0.1) !important;
+    color: var(--douradinho-bright) !important;
+}
+
+.dark-mode .dropdown-divider {
+    border-color: var(--douradinho) !important;
+    opacity: 0.3;
+}

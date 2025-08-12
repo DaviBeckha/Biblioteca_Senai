@@ -1,3 +1,4 @@
+/* transitions.css */
 .page-transition {
     position: fixed;
     top: 0;
@@ -6,10 +7,9 @@
     height: 100%;
     background-color: var(--brancoCorpo);
     z-index: 9999;
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 1s ease;
-
+    transform: translateY(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .page-transition.dark-mode {
@@ -17,7 +17,8 @@
 }
 
 .page-transition.active {
-    opacity: 1;
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 .transition-out {
@@ -28,35 +29,24 @@
     height: 100%;
     z-index: 9998;
     background-color: var(--brancoCorpo) !important;
-    animation: pageOut 1.0s ease forwards;
+    transform: translateY(100%);
+    animation: pageOut 0.5s ease forwards;
 }
 
 .transition-out.dark-mode {
     background-color: var(--cinza-escuro) !important;
 }
 
-
-body.dark-mode .page-transition {
-    background-color: var(--cinza-escuro) !important;
-}
-
-body.dark-mode .transition-out {
-    background-color: var(--cinza-escuro) !important;
-}
-
 @keyframes pageOut {
     0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        background-image: url(../assets/gifLivro_dark.gif) no-repeat cover;
-        transform: scale(0.6);
-        opacity: 1;
+        transform: translateY(100%);
     }
     100% {
-        
-        transform: scale(0.9);
-        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+body.dark-mode .page-transition,
+body.dark-mode .transition-out {
+    background-color: var(--cinza-escuro) !important;
 }

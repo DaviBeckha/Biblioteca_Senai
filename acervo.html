@@ -37,8 +37,20 @@
         <div class="d-flex justify-content-between align-items-center mb-5">
             <h2 class="text-uppercase fw-bold">Acervo Digital</h2>
             <div>
-                <button class="btn btn-outline-gold me-2" id="filterBtn">Filtrar</button>
-                <input type="text" class="form-control bg-light-gold border-gold" id="searchInput" placeholder="Buscar livro...">
+                <div class="dropdown d-inline-block me-2">
+    <button class="btn btn-outline-gold dropdown-toggle" id="filterBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filtrar
+    </button>
+    <ul class="dropdown-menu bg-light-gold border-gold">
+        <li><a class="dropdown-item filter-option" href="#" data-filter="all">Todos</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item filter-option" href="#" data-filter="Romance">Romance</a></li>
+        <li><a class="dropdown-item filter-option" href="#" data-filter="Naturalismo">Naturalismo</a></li>
+        <li><a class="dropdown-item filter-option" href="#" data-filter="Modernismo">Modernismo</a></li>
+        <li><a class="dropdown-item filter-option" href="#" data-filter="Conto">Conto</a></li>
+    </ul>
+</div>
+<input type="text" class="form-control bg-light-gold border-gold" id="searchInput" placeholder="Buscar livro...">
             </div>
         </div>
 
@@ -64,7 +76,7 @@
     </footer>
 
     <script src="/js/estoqueLivros.js"></script>
-    <script src="/js/transitions.js"></script>
     <script src="/js/dark-mode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
