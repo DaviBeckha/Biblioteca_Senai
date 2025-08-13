@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const bookElement = document.createElement('div');
             bookElement.className = 'col-md-3 mb-4';
             bookElement.innerHTML = `
-                <div class="card bg-light-gold border-gold h-100">
+                <div class="card bg-light-gold border-gold h-100 ">
                     <div class="card-body">
                         <h5 class="card-title text-bordo">${bookData.title}</h5>
                         <p class="card-text">${bookData.author}</p>
