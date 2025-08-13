@@ -1,8 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     // livros cadastrados
     const books = [
-        { id: 1, title: "Dom Casmurro", author: "Machado de Assis", genre: "Romance" },
-        { id: 2, title: "O Cortiço", author: "Aluísio Azevedo", genre: "Naturalismo" },
+        { 
+            id: 1, 
+            title: "Dom Casmurro", 
+            author: "Machado de Assis", 
+            genre: "Romance",
+            description: "Dom Casmurro é um romance escrito por Machado de Assis, publicado em 1899. A obra é narrada em primeira pessoa por Bento Santiago, que conta sua vida desde a adolescência até a idade adulta, focando principalmente em seu relacionamento com Capitu e a possível traição dela.",
+            cover: "https://m.media-amazon.com/images/I/81R3Kx2R1BL._AC_UF1000,1000_QL80_.jpg"
+        },
+        { 
+            id: 2, 
+            title: "O Cortiço", 
+            author: "Aluísio Azevedo", 
+            genre: "Naturalismo",
+            description: "O Cortiço é um romance naturalista do brasileiro Aluísio Azevedo publicado em 1890. A obra denuncia a exploração e as péssimas condições de vida dos moradores das estalagens ou cortiços cariocas do final do século XIX.",
+            cover: "https://m.media-amazon.com/images/I/71X1p+mVv8L._AC_UF1000,1000_QL80_.jpg"
+        },
         { id: 3, title: "Iracema", author: "José de Alencar", genre: "Romance" },
         { id: 4, title: "Memórias Póstumas", author: "Machado de Assis", genre: "Romance" },
         { id: 5, title: "Vidas Secas", author: "Graciliano Ramos", genre: "Modernismo" },
@@ -95,36 +109,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
    
     function renderFilteredBooks(filteredBooks) {
-        booksContainer.innerHTML = '';
-        
-        if (filteredBooks.length === 0) {
-            booksContainer.innerHTML = '<p class="text-center col-12">Nenhum livro encontrado</p>';
-            return;
-        }
-        
-        filteredBooks.forEach(book => {
-            const isInShelf = shelf.some(item => item.id === book.id);
-            
-            const bookElement = document.createElement('div');
-            bookElement.className = 'col-md-3 mb-4';
-            bookElement.innerHTML = `
-                <div class="card bg-light-gold border-gold h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-bordo">${book.title}</h5>
-                        <p class="card-text">${book.author}</p>
-                        <small class="text-muted">${book.genre}</small>
-                    </div>
-                    <div class="card-footer bg-transparent border-gold">
-                        <button class="btn btn-sm ${isInShelf ? 'btn-outline-danger' : 'btn-outline-gold'}" 
-                                onclick="toggleShelf(${book.id})">
-                            ${isInShelf ? 'Remover' : 'Adicionar'}
-                        </button>
-                    </div>
-                </div>
-            `;
-            booksContainer.appendChild(bookElement);
-        });
+    booksContainer.innerHTML = '';
+    
+    if (filteredBooks.length === 0) {
+        booksContainer.innerHTML = '<p class="text-center col-12">Nenhum livro encontrado</p>';
+        return;
     }
+    
+    filteredBooks.forEach(book => {
+        const isInShelf = shelf.some(item => item.id === book.id);
+        
+        const bookElement = document.createElement('div');
+        bookElement.className = 'col-md-3 mb-4';
+        bookElement.innerHTML = `
+            <div class="card bg-light-gold border-gold h-100" onclick="openBookPopup(${book.id})" style="cursor: pointer;">
+                <div class="card-body">
+                    <h5 class="card-title text-bordo">${book.title}</h5>
+                    <p class="card-text">${book.author}</p>
+                    <small class="text-muted">${book.genre}</small>
+                </div>
+                <div class="card-footer bg-transparent border-gold">
+                    <button class="btn btn-sm ${isInShelf ? 'btn-outline-danger' : 'btn-outline-gold'}" 
+                            onclick="event.stopPropagation(); toggleShelf(${book.id})">
+                        ${isInShelf ? 'Remover' : 'Adicionar'}
+                    </button>
+                </div>
+            </div>
+        `;
+        booksContainer.appendChild(bookElement);
+    });
+}
     
    
     function renderShelf() {
@@ -197,5 +211,65 @@ document.addEventListener('DOMContentLoaded', function() {
             renderShelf();
         }
     };
+     window.openBookPopup = function(bookId) {
+    const book = books.find(b => b.id === bookId);
+    if (!book) return;
+    
+    
+    closeBookPopup();
+    
+    const popupHTML = `
+        <div class="book-popup-overlay" id="bookPopup">
+            <div class="book-popup-content">
+                <span class="book-popup-close" onclick="closeBookPopup()">&times;</span>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="${book.cover || 'https://via.placeholder.com/200x300?text=Capa+Indispon%C3%ADvel'}" 
+                             alt="Capa do livro ${book.title}" class="book-popup-img">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="text-bordo">${book.title}</h3>
+                        <h5 class="autorClaro">${book.author}</h5>
+                        <p><small class="text-muted">${book.genre}</small></p>
+                        <p class="mt-3">${book.description || 'Descrição não disponível.'}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+    
+    
+    void document.getElementById('bookPopup').offsetWidth;
+    
+  
+    document.getElementById('bookPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+    window.closeBookPopup = function() {
+    const popup = document.getElementById('bookPopup');
+    if (popup) {
+        popup.classList.remove('active');
+        
+       
+        setTimeout(() => {
+            if (popup.parentNode) {
+                popup.remove();
+            }
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+};
+
+    
+    document.addEventListener('click', function(e) {
+        const popup = document.getElementById('bookPopup');
+        if (popup && e.target === popup) {
+            closeBookPopup();
+        }
+    });
     init();
 });

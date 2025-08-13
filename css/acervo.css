@@ -1,10 +1,14 @@
 .card {
     transition: all 0.3s ease;
+    transform: translateY(0);
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.card:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .form-check-input:checked {
@@ -100,4 +104,63 @@
 .dark-mode .dropdown-divider {
     border-color: var(--douradinho) !important;
     opacity: 0.3;
+}
+
+.book-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.book-popup-overlay.active {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    visibility: visible;
+}
+
+.book-popup-content {
+    background-color: var(--folhaqueimada);
+    padding: 2rem;
+    border-radius: 5px;
+    border: 2px solid var(--douradinho);
+    max-width: 600px;
+    width: 90%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s; 
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.book-popup-overlay.active .book-popup-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.book-popup-img {
+    max-width: 200px;
+    max-height: 300px;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 1px solid var(--douradinho);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease 0.2s; 
+}
+
+.book-popup-overlay.active .book-popup-img {
+    opacity: 1;
+    transform: scale(1);
 }
