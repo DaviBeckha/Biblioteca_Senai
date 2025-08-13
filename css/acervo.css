@@ -15,6 +15,13 @@
     background-color: var(--bordo);
     border-color: var(--bordo);
 }
+.form-check-label {
+    color: white !important;
+}
+
+.dark-mode .form-check-label {
+    color: var(--brancoDarkMode) !important;
+}
 
 #searchInput {
     color: var(--bordo);
@@ -143,6 +150,20 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+.dark-mode .book-popup-content {
+    background-color: var(--pretoPopUp);
+    padding: 2rem;
+    border-radius: 5px;
+    border: 2px solid var(--douradinho);
+    max-width: 600px;
+    width: 90%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s; 
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 .book-popup-overlay.active .book-popup-content {
     transform: translateY(0);
     opacity: 1;
@@ -150,9 +171,9 @@
 
 
 .book-popup-img {
-    max-width: 200px;
+    max-width: 180px;
     max-height: 300px;
-    margin: 0 auto 1rem;
+    margin: 0 5% 0% 1%;
     display: block;
     border: 1px solid var(--douradinho);
     opacity: 0;
