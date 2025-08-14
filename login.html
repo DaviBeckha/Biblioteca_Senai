@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Biblioteca Imperial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/transitions.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-bordo text-gold">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card bg-light-gold border-gold p-4" style="width: 100%; max-width: 400px;">
+            <div class="text-center mb-4">
+                <h1 class="logo">Biblioteca Imperial</h1>
+                <button id="darkModeToggle" class="btn btn-sm btn-outline-gold ms-3 position-absolute end-0 me-3">
+            <i class="bi bi-moon-stars"></i>
+        </button>
+            </div>
+            
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label text-bordo">Email</label>
+                    <input type="email" class="form-control bg-light-gold border-gold" id="email" 
+                           required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div class="invalid-feedback">Por favor, insira um email válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label text-bordo">Senha</label>
+                    <input type="password" class="form-control bg-light-gold border-gold" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-outline-gold w-100">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

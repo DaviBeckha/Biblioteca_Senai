@@ -1,0 +1,48 @@
+.login-container {
+    min-height: 100vh;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.dark-mode .login-card {
+    background-color: var(--brancoCorpo-dark);
+    border-color: var(--douradinho-bright);
+}
+
+.dark-mode .login-card .form-label {
+    color: var(--douradinho-bright) !important;
+}
+
+.dark-mode .login-card .form-control {
+    background-color: var(--brancoCorpo-dark);
+    color: var(--douradinho-bright);
+    border-color: var(--douradinho-bright);
+}
+
+.dark-mode .login-card .form-control::placeholder {
+    color: var(--douradinho);
+}
+
+
+.logo {
+    font-weight: 200;
+    color: var(--douradinho); 
+}
+
+.dark-mode .logo {
+    color: var(--brancoDarkMode) !important;
+}
+
+
+.login-header .logo {
+    color: var(--douradinho); 
+}
+
+.dark-mode .login-header .logo {
+    color: var(--brancoDarkMode) !important; 
+}
+

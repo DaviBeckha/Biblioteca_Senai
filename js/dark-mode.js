@@ -1,7 +1,10 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const icon = darkModeToggle.querySelector('i');
+    const icon = darkModeToggle?.querySelector('i');
     
+    if (!darkModeToggle || !icon) return;
+
     
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -10,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('dark-mode');
         icon.classList.replace('bi-moon-stars', 'bi-sun');
     }
-    
   
     darkModeToggle.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
