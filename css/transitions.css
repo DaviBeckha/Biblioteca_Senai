@@ -1,4 +1,4 @@
-/* transitions.css */
+
 .page-transition {
     position: fixed;
     top: 0;
@@ -35,15 +35,6 @@
 
 .transition-out.dark-mode {
     background-color: var(--cinza-escuro) !important;
-}
-
-@keyframes pageOut {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }
 
 body.dark-mode .page-transition,
